@@ -15,7 +15,6 @@
 int	isalpha(int ch)
 {
 	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'z'))
-		return (0);
-	else
-		return (!0);
+		return (1);
+	return (0);
 }

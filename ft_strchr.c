@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char	*ft_strchr(const char *string, int c)
 {
@@ -25,10 +26,11 @@ char	*ft_strchr(const char *string, int c)
 		return (NULL);
 	return ((char *) string + i);
 }
-/*int main()
+int main()
 {
-	char chaine[9]="chaimaaa";
-	char c ='i';
+	char chaine[9]="chai\0ma\0\0aa";
+	char c ='\1';
+	printf("%s\n",ft_strchr(chaine,c));
 	printf("%s",strchr(chaine,c));
 	return 0;
-}*/
+}
