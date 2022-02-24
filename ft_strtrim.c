@@ -6,55 +6,56 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:04:30 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/21 10:43:11 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/24 10:39:52 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-char	*func(char *string, int j, char const *set)
+static int	compi(char const *ss1, char const *set1, int indexp, int j)
 {
-	int	k;
-	int	i;
-
-	k = 0;
-	i = 0;
-	while (set[k] != '\0')
+	while (ss1[indexp] != '\0' && set1[j] != '\0')
 	{
-		if (string[i] == set[k])
+		if (ss1[indexp] == set1[j])
 		{
-			i++;
-			k = 0;
+			indexp++;
+			j = 0;
 		}
-		else if (string[j] == set[k])
-		{
-			k = 0;
-			j--;
-		}
-		else if ((string[i] != set[k]) || (string[j] != set[k]))
-			k++;
+		else
+			j++;
 	}
-	string[j +1] = '\0';
-	string = string + i;
-	return (string);
+	return (indexp);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*string;
-	size_t	len;
-	int		j;
+	int				indexi;
+	int				indexf;
+	int				i;
+	unsigned int	k;
 
-	len = ft_strlen(s1);
-	j = (int)len - 1;
-	string = (char *)malloc((len + 1) * sizeof(char));
-	string = ft_strdup(s1);
-	return (func(string, j, set));
+	i = 0;
+	if (s1 == NULL || set == NULL)
+		return (NULL);
+	indexf = ft_strlen(s1) - 1;
+	indexi = compi(s1, set, 0, 0);
+	while (indexf >= 0 && set[i] != '\0')
+	{
+		if (s1[indexf] == set[i])
+		{
+			indexf--;
+			i = 0;
+		}
+		else
+			i++;
+	}
+	if ((indexf - indexi + 1) <= 0)
+		k = 0;
+	else
+		k = indexf - indexi + 1;
+	return (ft_substr(s1, indexi, k));
 }
-/*
-int main()
+/*int main()
 {
 	char s1[]=" ma chaine         ";
 	char set[]=" ";

@@ -6,18 +6,19 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 22:02:56 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/21 10:39:57 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/24 12:00:50 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	num_char(const char *s, char c, size_t *index)
 {
 	size_t	lenght;
 
 	lenght = 0;
+	if  (s == NULL)
+		return (0);
 	while (s[*index] == c)
 		(*index)++;
 	while (s[*index] != '\0' && s[*index] != c)
@@ -35,6 +36,8 @@ static size_t	num_substr(const char *s, char c)
 
 	i = 0;
 	count = 0;
+	if (s == NULL)
+		return (0);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c)
@@ -49,7 +52,7 @@ static size_t	num_substr(const char *s, char c)
 	return (count);
 }
 
-static char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*ft_subbstr(char const *s, unsigned int start, size_t len)
 {
 	char	*dst;
 	size_t	i;
@@ -72,6 +75,8 @@ static char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 static char	**free_memory(char **string, int i)
 {
+	if (string == NULL)
+		return (NULL);
 	while (i-- > 0)
 		free(string[i]);
 	free(string);
@@ -89,13 +94,15 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	index = 0;
 	count = num_substr(s, c);
+	if (s == NULL)
+		return (NULL);
 	string = (char **)malloc((count + 1) * sizeof(char *));
 	if (string == NULL)
 		return (NULL);
 	while (i < count)
 	{
 		len_substr = num_char(s, c, &index);
-		string[i] = ft_substr(s, index - len_substr, len_substr);
+		string[i] = ft_subbstr(s, index - len_substr, len_substr);
 		if (string[i] == NULL)
 			return (free_memory(string, i));
 		i++;

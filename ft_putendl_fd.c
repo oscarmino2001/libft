@@ -6,7 +6,7 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 11:52:32 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/18 17:56:35 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:42:38 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (s == NULL)
+		return ;
 	write(fd, s, strlen(s));
 	write(fd, "\n", 1);
 }

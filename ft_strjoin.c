@@ -6,7 +6,7 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 10:56:56 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/18 16:26:07 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:48:52 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	k = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	len = (int)strlen(s1) + (int)strlen(s2);
 	string = (char *)malloc(len * sizeof(char));
 	if (string != NULL)
@@ -32,9 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		while (s2[i] != '\0')
 		{
 			while (s1[j] != '\0')
-			{
 				string[k++] = s1[j++];
-			}
 			string[k++] = s2[i++];
 		}
 		string[k] = '\0';

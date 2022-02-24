@@ -6,75 +6,59 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:49:22 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/21 16:09:45 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/24 10:42:18 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-int	num_digit(int nb)
+static int	numb(int nb)
 {
-	int	num_digit;
-
-	num_digit = 0;
-	while (nb != 0)
-	{
-		nb /= 10;
-		num_digit++;
-	}
-	return (num_digit);
+	if (nb == 0)
+		return (1);
+	return (1 + numb(nb / 10));
 }
 
-char	*negative_num(int nb)
+static char	*affect(char *s, int num, int i)
 {
-	char	*str;
-	int		value;
-	int		i;
-	int		num_digits;
+	unsigned int	l;
 
-	num_digits = num_digit(nb) + 1;
-	str = (char *)malloc((num_digits + 2) * sizeof (char));
-	str[0] = '-';
-	nb *= -1;
-	i = num_digits;
-	while (i-- > 1)
-	{
-		value = nb % 10;
-		nb /= 10;
-		str[i] = value + '0';
-	}
-	str[num_digits + 1] = '\0';
-	return (str);
-}
-
-char	*ft_itoa(int nb)
-{
-	int		num_digits;
-	int		j;
-	int		num;
-	char	*str;
-	char	value;
-
-	j = 0;
-	num = nb;
-	num_digits = num_digit(nb);
-	if (nb < 0)
-		str = negative_num(nb);
-	else
-	{
-		str = (char *)malloc((num_digits + 1) * sizeof (char));
-		while (num_digits-- > 0)
-		{
-			value = nb % 10;
-			nb /= 10;
-			str[num_digits] = value + '0';
-		}
-		str[num_digits] = '\0';
-	}
+	l = 0;
 	if (num == 0)
-		str[j] = '0';
-	return (str);
+		*s = num + 48;
+	else if (num < 0)
+	{
+		*s = '-';
+		l = num * (-1);
+	}
+	else
+		l = num;
+	s[i + 1] = '\0';
+	while (l != 0)
+	{
+		s[i] = l % 10 + 48;
+		l = l / 10;
+		i--;
+	}
+	return (s);
 }
+
+char	*ft_itoa(int n)
+{
+	int		len;
+	char	*dst;
+
+	if (n > 0)
+		len = numb(n) - 1;
+	else
+		len = numb(n);
+	dst = (char *)malloc(sizeof(char) * (len + 1));
+	if (dst == NULL)
+		return (NULL);
+	return (affect(dst, n, len - 1));
+}
+
+
 /*int main()
 {
 	int a= -410;

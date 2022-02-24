@@ -6,7 +6,7 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:21:51 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/21 12:23:02 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/23 19:16:09 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 void	*ft_calloc(size_t num, size_t size)
 {
 	void	*tab;
-	int		i;
 
-	i = 0;
 	tab = malloc(num * size);
-	bzero(tab, num);
+	if (tab == NULL)
+		return (NULL);
+	bzero(tab, num * size);
 	return (tab);
 }
 /*int main()
