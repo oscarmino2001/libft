@@ -6,7 +6,7 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 22:38:42 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/23 18:45:50 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:53:58 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,18 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[len1] = '\0';
 	return (t);
 }
+
+/*int	main(void)
+{
+	int		ret;
+	char	dest[30];
+	char	*src = "zzz";
+	dest[0] = 'a';
+	dest[1] = 'b';
+	dest[2] = 'c';
+	dest[3] = '\0';
+
+	ret = strlcat(dest, src, -1);
+	printf("%d|%s\n", ret, dest);
+	return (0);
+}*/

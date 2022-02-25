@@ -6,18 +6,17 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:25:08 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/24 12:48:39 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 12:24:20 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
+	unsigned int	i;
 
-	if (s == NULL)
-		return (NULL);
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -31,8 +30,8 @@ char	*ft_strchr(const char *s, int c)
 }
 /*int main()
 {
-	char chaine[9]="chamaaa";
-	char c ='i';
+	char chaine[]="\0chaimaa";
+	char c ='\0';
 	printf("%s\n",ft_strchr(chaine,c));
 	printf("%s",strchr(chaine,c));
 	return 0;

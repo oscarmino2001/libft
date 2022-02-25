@@ -6,41 +6,37 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 10:56:56 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/24 11:48:52 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:33:16 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*string;
-	int		len;
-	int		i;
-	int		j;
-	int		k;
+	char	*total;
+	char	*ptr;
 
-	i = 0;
-	j = 0;
-	k = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	len = (int)strlen(s1) + (int)strlen(s2);
-	string = (char *)malloc(len * sizeof(char));
-	if (string != NULL)
+	total = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (total == NULL)
+		return (NULL);
+	ptr = total;
+	while (*s1 != '\0')
 	{
-		while (s2[i] != '\0')
-		{
-			while (s1[j] != '\0')
-				string[k++] = s1[j++];
-			string[k++] = s2[i++];
-		}
-		string[k] = '\0';
-		return (string);
+		*total = *s1;
+		total++;
+		s1++;
 	}
-	return (NULL);
+	while (*s2 != '\0')
+	{
+		*total = *s2;
+		total++;
+		s2++;
+	}
+	*total = '\0';
+	return (ptr);
 }
 /*int main()
 {

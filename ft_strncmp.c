@@ -6,11 +6,12 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 07:52:24 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/23 21:55:58 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 14:17:26 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -32,3 +33,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	r = str1[i] - str2[i];
 	return (r);
 }
+/*int main()
+{
+	char str[] = "chaimaa";
+	char str2[] = "chaiaoui";
+	printf("%d",ft_strncmp(str,str2,4));
+	printf("\n%d",strncmp(str,str2,4));
+	return 0;
+}*/

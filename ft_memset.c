@@ -6,11 +6,12 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:39:18 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/24 12:49:57 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 11:09:16 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_memset(void *str, int value, size_t count)
 {
@@ -23,6 +24,6 @@ void	*ft_memset(void *str, int value, size_t count)
 }
 /*int main()
 {
-	char chaine[]="Hello World";
-    printf("%s ",memset(chaine+2,'*',4));
+	char chaine[]="*Hello World";
+    printf("%s ",ft_memset(chaine,'*',2));
 }*/

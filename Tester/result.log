@@ -8,33 +8,12 @@ ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_isalpha:    [OK] 
 ft_isdigit:    [OK] 
-ft_isalnum:    [FAILED] 
-[fail]: your isalnum just doesn't work, REALLY ?!
-Test code:
-	int i;
-
-	i = -1;
-	while (i < 530)
-	{
-		if (!!ft_isalnum(i) != !!isalnum(i))
-			exit(TEST_FAILED);
-		i++;
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-
-
+ft_isalnum:    [OK] 
 ft_isascii:    [OK] 
 ft_isprint:    [OK] 
 ft_toupper:    [OK] 
 ft_tolower:    [OK] 
-ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [NO CRASH] 
-[no crash]: your strchr does not segfault with NULL parameter
-Test code:
-	ft_strchr(((void *)0), '\0');
-
-
+ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] 

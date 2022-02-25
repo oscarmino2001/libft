@@ -6,7 +6,7 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:49:22 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/24 10:42:18 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:42:41 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (affect(dst, n, len - 1));
 }
-
-
 /*int main()
 {
 	int a= -410;

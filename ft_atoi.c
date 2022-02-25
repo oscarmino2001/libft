@@ -6,39 +6,41 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:12:32 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/21 12:20:52 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 09:17:56 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	long	result;
+#include "libft.h"
+#include <stdio.h>
 
-	i = 0;
+int	ft_atoi(const char *str)
+{
+	long	nb;
+	int		sign;
+
 	sign = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	nb = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-')
+		sign = sign * (-1);
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		i++;
+		nb = nb * 10 + (*str - '0');
+		str++;
 	}
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-		{
-			sign = -1;
-		}
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = 10 * result + (str[i] - '0');
-		i++;
-	}
-	if (result < 0 && sign > 0)
+	if (nb < 0 && sign > 0)
 		return (-1);
-	if (result < 0 && sign < 0)
+	if (nb < 0 && sign < 0)
 		return (0);
-	return (result * sign);
+	return (sign * nb);
 }
+/*int main ()
+{
+	char str[] = "99999";
+	printf("%d",ft_atoi(str));
+	printf("\n%d",atoi(str));
+	return 0;
+}*/	

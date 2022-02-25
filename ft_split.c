@@ -6,7 +6,7 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 22:02:56 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/24 12:00:50 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:43:25 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	num_char(const char *s, char c, size_t *index)
 	size_t	lenght;
 
 	lenght = 0;
-	if  (s == NULL)
+	if (s == NULL)
 		return (0);
 	while (s[*index] == c)
 		(*index)++;

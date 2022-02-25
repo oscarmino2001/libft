@@ -6,7 +6,7 @@
 /*   By: cbahraou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 09:25:23 by cbahraou          #+#    #+#             */
-/*   Updated: 2022/02/24 12:04:56 by cbahraou         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:44:22 by cbahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	size_t	len;
 	int		i;
-	
+
 	if (s == NULL)
 		return ;
 	len = ft_strlen(s);
